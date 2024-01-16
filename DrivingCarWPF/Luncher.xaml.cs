@@ -44,10 +44,7 @@ namespace DrivingCarWPF
             
         }
 
-        private void choixNiveau_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
+        
 
         private void butParametre_Click(object sender, RoutedEventArgs e)
         {
