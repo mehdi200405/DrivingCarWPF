@@ -1,0 +1,24 @@
+﻿<Window x:Class="DrivingCarWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DrivingCarWPF"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Icon="D:\Utilisateurs\formation\Documents\IUT\Code WPF\DrivingCarWPF\DrivingCarWPF\img\logoVoiture.ico"
+        Title="Driving Car" 
+        Height="700" Width="500" ResizeMode="NoResize"
+        KeyDown="voiture_KeyDown" KeyUp="voiture_KeyUp">
+    <Grid>
+        <Canvas Name="monCanvas">
+
+            <Rectangle x:Name="route1" HorizontalAlignment="Center" Height="684" VerticalAlignment="Center" Width="500"/>
+            <Rectangle x:Name="route2" HorizontalAlignment="Center" Height="684" VerticalAlignment="Top" Width="500" Canvas.Top="-684"/>
+            <Rectangle x:Name="voiture" Canvas.Left="205" Canvas.Top="491" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="140" />
+
+            <Label x:Name="lblScore" Content="Score : 0" Canvas.Left="24" Canvas.Top="24" FontFamily="72 Black" FontSize="14" Background="DarkGray"/>
+        </Canvas>
+
+    </Grid>
+</Window>
