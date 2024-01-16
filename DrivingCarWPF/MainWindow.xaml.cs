@@ -41,11 +41,15 @@ namespace DrivingCarWPF
 
             Luncher dialogLuncher = new Luncher();
             dialogLuncher.ShowDialog();
+
+            pageChoixDecor dialogPageChoix = new pageChoixDecor();
+            dialogPageChoix.ShowDialog();
        
 
             minuterie.Tick += GameEngine;
             minuterie.Interval = TimeSpan.FromMilliseconds(16);             // rafraissement toutes les 16 milliseconds
             minuterie.Start();                                              // lancement du timer
+
             ImageBrush imgRoute1 = new ImageBrush();
             imgRoute1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\road_0.png"));
             route1.Fill = imgRoute1;

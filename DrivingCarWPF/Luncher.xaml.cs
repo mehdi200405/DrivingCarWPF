@@ -33,7 +33,7 @@ namespace DrivingCarWPF
             bruchparametre.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\parametres.png"));
             butParametre.Background = bruchparametre;
             soundPlayer = new SoundPlayer("D:\\Utilisateurs\\formation\\Documents\\IUT\\Code WPF\\DrivingCarWPF\\DrivingCarWPF\\sons\\sonsPageAccueil.wav");
-            soundPlayer.Play();
+            soundPlayer.PlayLooping();
 
         }
 
@@ -41,11 +41,7 @@ namespace DrivingCarWPF
         {
             DialogResult = true;
             soundPlayer.Stop();
-            
         }
-
-        
-
         private void butParametre_Click(object sender, RoutedEventArgs e)
         {
             DialogCommandeJeux choixParametre = new DialogCommandeJeux();
