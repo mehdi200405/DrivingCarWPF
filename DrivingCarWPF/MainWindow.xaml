@@ -9,15 +9,17 @@
         Icon="D:\Utilisateurs\formation\Documents\IUT\Code WPF\DrivingCarWPF\DrivingCarWPF\img\logoVoiture.ico"
         Title="Driving Car" 
         Height="700" Width="500" ResizeMode="NoResize"
-        KeyDown="voiture_KeyDown" KeyUp="voiture_KeyUp">
+        FocusManager.FocusedElement="{Binding ElementName=monCanvas}">
     <Grid>
-        <Canvas Name="monCanvas" Focusable="True">
+        <Canvas Name="monCanvas" Focusable="True" KeyDown="voiture_KeyDown" KeyUp="voiture_KeyUp">
 
-            <Rectangle x:Name="route1" HorizontalAlignment="Center" Height="684" VerticalAlignment="Center" Width="500"/>
-            <Rectangle x:Name="route2" HorizontalAlignment="Center" Height="684" VerticalAlignment="Top" Width="500" Canvas.Top="-684"/>
-            <Rectangle x:Name="voiture" Canvas.Left="205" Canvas.Top="491" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="140" />
+            <Rectangle x:Name="route1" HorizontalAlignment="Center" Height="684" VerticalAlignment="Center" Width="500" Fill="Red"/>
+            <Rectangle x:Name="route2" HorizontalAlignment="Center" Height="684" VerticalAlignment="Top" Width="500" Canvas.Top="-684" Fill="#FF7BFF00"/>
+            <Rectangle x:Name="huileMoteur" Height="57" Canvas.Left="94" Canvas.Top="242" Width="54" Fill="#FF0300FF"/>
+            <Rectangle x:Name="voiture" Canvas.Left="205" Canvas.Top="491" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="140" Fill="#FFFFB800" />
 
             <Label x:Name="lblScore" Content="Score : 0" Canvas.Left="24" Canvas.Top="24" FontFamily="72 Black" FontSize="14" Background="DarkGray"/>
+            
         </Canvas>
 
     </Grid>

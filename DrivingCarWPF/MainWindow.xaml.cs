@@ -31,6 +31,7 @@ namespace DrivingCarWPF
         private bool rotation = false;
         private SoundPlayer sonVoiture;
         private SoundPlayer sonPneu;
+        private int Image = 0;
         
         // Rectangle de collision de la pièce
 
@@ -44,18 +45,35 @@ namespace DrivingCarWPF
 
             pageChoixDecor dialogPageChoix = new pageChoixDecor();
             dialogPageChoix.ShowDialog();
-       
+
+            this.Image = dialogPageChoix.choixImage;
+            
+            if (this.Image == 1)
+            {
+                ImageBrush imgRoute1 = new ImageBrush();
+                imgRoute1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\road_0.png"));
+                route1.Fill = imgRoute1;
+                route2.Fill = imgRoute1;
+            }
+            else
+            {
+                ImageBrush imgRoute1 = new ImageBrush();
+                imgRoute1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\road_0neige.png"));
+                route1.Fill = imgRoute1;
+                route2.Fill = imgRoute1;
+            }
+
+            ImageBrush imghuile = new ImageBrush();
+            imghuile.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\huile1.png"));
+            huileMoteur.Fill = imghuile;
+            
 
             minuterie.Tick += GameEngine;
             minuterie.Interval = TimeSpan.FromMilliseconds(16);             // rafraissement toutes les 16 milliseconds
             minuterie.Start();                                              // lancement du timer
 
-            ImageBrush imgRoute1 = new ImageBrush();
-            imgRoute1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\road_0.png"));
-            route1.Fill = imgRoute1;
 
             
-            route2.Fill = imgRoute1;
 
             ImageBrush imgVoiture = new ImageBrush();
             imgVoiture.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\LamborghiniRevento.png"));

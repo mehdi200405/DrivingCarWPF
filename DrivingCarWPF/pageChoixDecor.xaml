@@ -8,10 +8,19 @@
         WindowStartupLocation="CenterScreen"
         Icon="D:\Utilisateurs\formation\Documents\IUT\Code WPF\DrivingCarWPF\DrivingCarWPF\img\logoVoiture.ico"
         Title="Choix du Décor" Height="450" Width="800" Background="#FF9A9A9A"
-        MinHeight="350" MinWidth="550">
+        MinHeight="350" MinWidth="600">
     <Grid>
         <Label Content="Choisissez votre fond" HorizontalAlignment="Center" Margin="0,45,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <Button x:Name="butDecor1" Content="" HorizontalAlignment="Left" Margin="180,152,0,0" VerticalAlignment="Top" Width="80" Height="100" Click="butDecor1_Click"/>
-        <Button x:Name="butDecor2" Content="" HorizontalAlignment="Right" Margin="0,152,180,0" VerticalAlignment="Top" Height="100" Width="80" Click="butDecor2_Click"/>
+        <Button x:Name="butDecor1" Content="" HorizontalAlignment="Left" Margin="170,140,0,0" VerticalAlignment="Top" Width="120" Height="150" Click="butDecor1_Click"/>
+        <Button x:Name="butDecor2" Content="" HorizontalAlignment="Right" Margin="0,140,170,0" VerticalAlignment="Top" Height="150" Width="120" Click="butDecor2_Click"/>
+
+
+        <Button x:Name="butRetour" Content="Quitter" Canvas.Left="477" Canvas.Top="318" Height="33" Width="64" Background="Red" FontWeight="Bold" FontSize="14" FontFamily="Harlow Solid Italic" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,715,376" Click="butRetour_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>
