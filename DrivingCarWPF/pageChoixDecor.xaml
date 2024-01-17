@@ -11,7 +11,7 @@
         MinHeight="350" MinWidth="550">
     <Grid>
         <Label Content="Choisissez votre fond" HorizontalAlignment="Center" Margin="0,45,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <Button x:Name="butDecor1" Content="" HorizontalAlignment="Left" Margin="180,152,0,0" VerticalAlignment="Top" Width="80" Height="100"/>
-        <Button x:Name="butDecor2" Content="" HorizontalAlignment="Right" Margin="0,152,180,0" VerticalAlignment="Top" Height="100" Width="80"/>
+        <Button x:Name="butDecor1" Content="" HorizontalAlignment="Left" Margin="180,152,0,0" VerticalAlignment="Top" Width="80" Height="100" Click="butDecor1_Click"/>
+        <Button x:Name="butDecor2" Content="" HorizontalAlignment="Right" Margin="0,152,180,0" VerticalAlignment="Top" Height="100" Width="80" Click="butDecor2_Click"/>
     </Grid>
 </Window>

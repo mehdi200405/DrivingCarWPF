@@ -47,5 +47,10 @@ namespace DrivingCarWPF
             DialogCommandeJeux choixParametre = new DialogCommandeJeux();
             choixParametre.Show();
         }
+
+        private void buttonAnnuler_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

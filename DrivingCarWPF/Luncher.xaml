@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Icon="D:\Utilisateurs\formation\Documents\IUT\Code WPF\DrivingCarWPF\DrivingCarWPF\img\logoVoiture.ico"
         WindowStartupLocation="CenterScreen"
-        Title="Accueil" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Accueil" Height="450" Width="800">
 
     <Grid>
         <Canvas x:Name="canvasAccueil">
@@ -15,7 +15,15 @@
                 <ImageBrush ImageSource="D:\Utilisateurs\formation\Documents\IUT\Code WPF\DrivingCarWPF\DrivingCarWPF\img\fondVoitureLuncher.jpg"/>
             </Canvas.Background>
 
-            <Button x:Name="buttonJouer" Content="Jouer" Canvas.Left="597" Canvas.Top="308" Height="57" Width="115" Background="#FFBCFF00" FontWeight="Bold" FontSize="24" FontFamily="Harlow Solid Italic" Click="buttonJouer_Click">
+            <Button x:Name="buttonJouer" Content="Jouer" Canvas.Left="597" Canvas.Top="308" Height="57" Width="115" Background="#FFBCFF00" FontWeight="Bold" FontSize="24" FontFamily="Harlow Solid Italic" Click="buttonJouer_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,10,0,0">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="buttonAnnuler" Content="Annuler" Canvas.Left="477" Canvas.Top="318" Height="57" Width="115" Background="Red" FontWeight="Bold" FontSize="24" FontFamily="Harlow Solid Italic" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="buttonAnnuler_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>

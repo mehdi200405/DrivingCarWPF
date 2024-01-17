@@ -22,6 +22,25 @@ namespace DrivingCarWPF
         public pageChoixDecor()
         {
             InitializeComponent();
+
+            ImageBrush brush1 = new ImageBrush();
+            brush1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\ApercuDecor1.jpg"));
+            butDecor1.Background = brush1;
+
+
+            ImageBrush brush2 = new ImageBrush();
+            brush2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\ApercuDecor2.jpg"));
+            butDecor2.Background = brush2;
+        }
+
+        private void butDecor1_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+        }
+
+        private void butDecor2_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
         }
     }
 }

@@ -54,16 +54,15 @@ namespace DrivingCarWPF
             imgRoute1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\road_0.png"));
             route1.Fill = imgRoute1;
 
-            ImageBrush imgRoute2 = new ImageBrush();
-            imgRoute2.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\road_0.png"));
-            route2.Fill = imgRoute2;
+            
+            route2.Fill = imgRoute1;
 
             ImageBrush imgVoiture = new ImageBrush();
             imgVoiture.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\LamborghiniRevento.png"));
             voiture.Fill = imgVoiture;
 
             sonVoiture = new SoundPlayer("D:\\Utilisateurs\\formation\\Documents\\IUT\\Code WPF\\DrivingCarWPF\\DrivingCarWPF\\sons\\sonVoitureAccélération.wav");
-            sonVoiture.Play();
+            sonVoiture.PlayLooping();
 
             sonPneu = new SoundPlayer("D:\\Utilisateurs\\formation\\Documents\\IUT\\Code WPF\\DrivingCarWPF\\DrivingCarWPF\\sons\\Crissement-de-pneus.wav");
             

@@ -11,7 +11,7 @@
         Height="700" Width="500" ResizeMode="NoResize"
         KeyDown="voiture_KeyDown" KeyUp="voiture_KeyUp">
     <Grid>
-        <Canvas Name="monCanvas">
+        <Canvas Name="monCanvas" Focusable="True">
 
             <Rectangle x:Name="route1" HorizontalAlignment="Center" Height="684" VerticalAlignment="Center" Width="500"/>
             <Rectangle x:Name="route2" HorizontalAlignment="Center" Height="684" VerticalAlignment="Top" Width="500" Canvas.Top="-684"/>
