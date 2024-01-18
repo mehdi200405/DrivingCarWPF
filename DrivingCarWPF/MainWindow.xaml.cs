@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using System.Media;
+using System.Numerics;
 
 
 namespace DrivingCarWPF
@@ -24,7 +25,7 @@ namespace DrivingCarWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool gauche, droit, reculer, avancer = false;      
+        private bool gauche, droit, reculer, avancer, pause = false;      
         private int vitesseJoueur = 10;                                     //10 Plus le chiffre est petit plus la vitesse de déplacement est faible
         private DispatcherTimer minuterie = new DispatcherTimer();
         private readonly int vitesse = 5;                                   //5 Plus le chiffre est petit plus la vitesse sera élever
@@ -32,7 +33,10 @@ namespace DrivingCarWPF
         private SoundPlayer sonVoiture;
         private SoundPlayer sonPneu;
         private int Image = 0;
-        
+        private ImageBrush imgHuile = new ImageBrush();
+        private bool premiereIteration = true;
+        private Storyboard storyboard = new Storyboard();
+
         // Rectangle de collision de la pièce
 
 
@@ -63,6 +67,8 @@ namespace DrivingCarWPF
                 route2.Fill = imgRoute1;
             }
 
+            
+
             ImageBrush imghuile = new ImageBrush();
             imghuile.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\huile1.png"));
             huileMoteur.Fill = imghuile;
@@ -83,10 +89,6 @@ namespace DrivingCarWPF
             sonVoiture.PlayLooping();
 
             sonPneu = new SoundPlayer("D:\\Utilisateurs\\formation\\Documents\\IUT\\Code WPF\\DrivingCarWPF\\DrivingCarWPF\\sons\\Crissement-de-pneus.wav");
-            
-
-            deplacementRouteInfinie();
-            
         }
 
         
@@ -120,7 +122,6 @@ namespace DrivingCarWPF
             Storyboard.SetTargetProperty(animation2, new PropertyPath(Canvas.TopProperty));
 
                                                                             // Créer et lancer le storyboard
-            Storyboard storyboard = new Storyboard();
             storyboard.Children.Add(animation1);
             storyboard.Children.Add(animation2);
             storyboard.Begin();
@@ -148,6 +149,24 @@ namespace DrivingCarWPF
             {
                 avancer = true;
             }
+            if (e.Key == Key.P)
+            {
+                if (minuterie.IsEnabled)
+                {
+                    pause = true;
+                    minuterie.Stop();
+                    storyboard.Pause();
+                    canvasPause.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    pause = false;
+                    minuterie.Start();
+                    storyboard.Resume();
+                    canvasPause.Visibility = Visibility.Collapsed;
+                }
+
+            }
 
         }
 
@@ -174,13 +193,51 @@ namespace DrivingCarWPF
             {
                 avancer = false;
             }
+            if (e.Key == Key.P)
+            {
+                pause = false;
+            }
         }
+
+        private void butRejouer_Click(object sender, RoutedEventArgs e)
+        {
+            storyboard.Resume();
+            canvasPerdu.Visibility = Visibility.Collapsed;
+            
+            // Restart the timer
+            minuterie.Start();
+        }
+
+        private void butReprendre_Click(object sender, RoutedEventArgs e)
+        {
+            pause = false;
+            minuterie.Start();
+            storyboard.Resume();
+            canvasPause.Visibility = Visibility.Collapsed;
+        }
+
 
         private void GameEngine(object sender, EventArgs e)
         {
-            
-                                           // création d’un rectangle joueur pour la détection de collision
+            Canvas.SetTop(huileMoteur, Canvas.GetTop(huileMoteur) + 3.5);
+            // création d’un rectangle joueur pour la détection de collision
+            Rect obstacle = new Rect(Canvas.GetLeft(huileMoteur), Canvas.GetTop(huileMoteur), huileMoteur.Width, huileMoteur.Height);
+
             Rect joueur = new Rect(Canvas.GetLeft(voiture), Canvas.GetTop(voiture), voiture.Width, voiture.Height);
+            if (premiereIteration && !pause)
+            {
+                deplacementRouteInfinie();
+                premiereIteration = false;
+            }
+
+            if (joueur.IntersectsWith(obstacle))
+            {
+                minuterie.Stop();
+                storyboard.Pause();
+                canvasPerdu.Visibility = Visibility.Visible;
+            }
+
+            
             
             // déplacement à gauche et droite de vitessePlayer avec vérification des limites de fenêtre gauche et droite
             if (gauche && Canvas.GetLeft(voiture) > 0)
@@ -215,8 +272,12 @@ namespace DrivingCarWPF
             {
                 Canvas.SetTop(voiture, Canvas.GetTop(voiture) + vitesseJoueur);
             }
-           
+
             
+            
+            
+
+
 
         }
 
