@@ -32,10 +32,11 @@ namespace DrivingCarWPF
         private bool rotation = false;
         private SoundPlayer sonVoiture;
         private SoundPlayer sonPneu;
-        private int Image = 0;
+        private int imageDecor = 0;
         private ImageBrush imgHuile = new ImageBrush();
         private bool premiereIteration = true;
         private Storyboard storyboard = new Storyboard();
+        private int imageVoiture = 0;
 
         // Rectangle de collision de la pièce
 
@@ -50,9 +51,9 @@ namespace DrivingCarWPF
             pageChoixDecor dialogPageChoix = new pageChoixDecor();
             dialogPageChoix.ShowDialog();
 
-            this.Image = dialogPageChoix.choixImage;
+            this.imageDecor = dialogPageChoix.choixImageDecor;
             
-            if (this.Image == 1)
+            if (this.imageDecor == 1)
             {
                 ImageBrush imgRoute1 = new ImageBrush();
                 imgRoute1.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\road_0.png"));
@@ -69,7 +70,35 @@ namespace DrivingCarWPF
 
             dialogChoixVoiture pageChoixVoiture = new dialogChoixVoiture();
             pageChoixVoiture.ShowDialog();
-            
+
+            this.imageVoiture = pageChoixVoiture.choixImageVoiture;
+
+            ImageBrush imgVoiture = new ImageBrush();
+            string imagePath = AppDomain.CurrentDomain.BaseDirectory + "img\\voiture";
+
+            switch (this.imageVoiture)
+            {
+                case 1:
+                    imgVoiture.ImageSource = new BitmapImage(new Uri(imagePath + "1.png"));
+                    break;
+                case 2:
+                    imgVoiture.ImageSource = new BitmapImage(new Uri(imagePath + "2.png"));
+                    break;
+                case 3:
+                    imgVoiture.ImageSource = new BitmapImage(new Uri(imagePath + "3.png"));
+                    break;
+                case 4:
+                    imgVoiture.ImageSource = new BitmapImage(new Uri(imagePath + "4.png"));
+                    break;
+                
+                default:
+                    
+                    break;
+            }
+
+            voiture.Fill = imgVoiture;
+
+
 
             ImageBrush imghuile = new ImageBrush();
             imghuile.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\huile1.png"));
@@ -79,13 +108,6 @@ namespace DrivingCarWPF
             minuterie.Tick += GameEngine;
             minuterie.Interval = TimeSpan.FromMilliseconds(16);             // rafraissement toutes les 16 milliseconds
             minuterie.Start();                                              // lancement du timer
-
-
-            
-
-            ImageBrush imgVoiture = new ImageBrush();
-            imgVoiture.ImageSource = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "img\\LamborghiniRevento.png"));
-            voiture.Fill = imgVoiture;
 
             sonVoiture = new SoundPlayer("D:\\Utilisateurs\\formation\\Documents\\IUT\\Code WPF\\DrivingCarWPF\\DrivingCarWPF\\sons\\sonVoitureAccélération.wav");
             sonVoiture.PlayLooping();

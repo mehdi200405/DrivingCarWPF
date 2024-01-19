@@ -19,7 +19,7 @@ namespace DrivingCarWPF
     /// </summary>
     public partial class pageChoixDecor : Window
     {
-        public int choixImage = 0;
+        public int choixImageDecor = 0;
         public pageChoixDecor()
         {
             InitializeComponent();
@@ -42,13 +42,13 @@ namespace DrivingCarWPF
         
         private void butDecor1_Click(object sender, RoutedEventArgs e)
         {
-            this.choixImage = 1;
+            this.choixImageDecor = 1;
             this.DialogResult = true;
         }
 
         private void butDecor2_Click(object sender, RoutedEventArgs e)
         {
-            this.choixImage = 2;
+            this.choixImageDecor = 2;
             this.DialogResult = true;
         }
 
