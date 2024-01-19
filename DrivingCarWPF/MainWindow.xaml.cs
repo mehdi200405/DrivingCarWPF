@@ -67,6 +67,8 @@ namespace DrivingCarWPF
                 route2.Fill = imgRoute1;
             }
 
+            dialogChoixVoiture pageChoixVoiture = new dialogChoixVoiture();
+            pageChoixVoiture.ShowDialog();
             
 
             ImageBrush imghuile = new ImageBrush();

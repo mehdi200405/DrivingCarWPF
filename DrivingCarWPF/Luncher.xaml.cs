@@ -40,7 +40,7 @@ namespace DrivingCarWPF
         private void buttonJouer_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
-            soundPlayer.Stop();
+            
         }
         private void butParametre_Click(object sender, RoutedEventArgs e)
         {

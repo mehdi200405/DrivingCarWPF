@@ -31,7 +31,7 @@
                 </Button.Resources>
             </Button>
 
-            <Label x:Name="nomJeux" Content="Driving Car" Canvas.Left="10" Canvas.Top="10" FontSize="48" FontFamily="72 Black" Foreground="White"/>
+            <Label x:Name="nomJeux" Content="Driving Car" Canvas.Left="10" Canvas.Top="10" FontSize="48" FontFamily="72 Black" Foreground="White" FontWeight="Bold"/>
 
             <Button x:Name="butParametre" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="25" Canvas.Left="746" Canvas.Top="18" Click="butParametre_Click"/>
 
